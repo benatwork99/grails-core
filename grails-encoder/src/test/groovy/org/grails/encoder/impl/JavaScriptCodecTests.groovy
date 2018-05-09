@@ -17,7 +17,7 @@ class JavaScriptCodecTests extends GroovyTestCase {
         assertEquals("\\n", codec.encode("\r\n"))
 
         // All other combinations should pass through
-        assertEquals("\\r", codec.encode("\r"))
+        assertEquals("\\n", codec.encode("\r"))
         assertEquals("\\n", codec.encode("\n"))
         assertEquals("\\r\\r", codec.encode("\r\r"))
         assertEquals("\\n\\n", codec.encode("\n\n"))

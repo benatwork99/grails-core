@@ -16,12 +16,12 @@ class JavaScriptCodecTests extends GroovyTestCase {
         // CRLF should be collapsed to LF
         assertEquals("\\n", codec.encode("\r\n"))
 
-        // All other combinations should pass through
+        // All other combinations should pass through (although \r is encoded as \n)
         assertEquals("\\n", codec.encode("\r"))
         assertEquals("\\n", codec.encode("\n"))
-        assertEquals("\\r\\r", codec.encode("\r\r"))
+        assertEquals("\\n\\n", codec.encode("\r\r"))
         assertEquals("\\n\\n", codec.encode("\n\n"))
-        assertEquals("\\n\\r", codec.encode("\n\r"))
+        assertEquals("\\n\\n", codec.encode("\n\r"))
     }
     
     void testEncodeSeparators() {

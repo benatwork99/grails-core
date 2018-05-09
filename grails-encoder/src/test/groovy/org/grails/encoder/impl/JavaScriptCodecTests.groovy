@@ -14,14 +14,14 @@ class JavaScriptCodecTests extends GroovyTestCase {
 
     void testEncodeNewlines() {
         // CRLF should be collapsed to LF
-        assertEquals("\n", codec.encode("\r\n"))
+        assertEquals("\\n", codec.encode("\r\n"))
 
         // All other combinations should pass through
-        assertEquals("\r", codec.encode("\r"))
-        assertEquals("\n", codec.encode("\n"))
-        assertEquals("\r\r", codec.encode("\r\r"))
-        assertEquals("\n\n", codec.encode("\n\n"))
-        assertEquals("\n\r", codec.encode("\n\r"))
+        assertEquals("\\r", codec.encode("\r"))
+        assertEquals("\\n", codec.encode("\n"))
+        assertEquals("\\r\\r", codec.encode("\r\r"))
+        assertEquals("\\n\\n", codec.encode("\n\n"))
+        assertEquals("\\n\\r", codec.encode("\n\r"))
     }
     
     void testEncodeSeparators() {
